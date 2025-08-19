@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Meme Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Whisper&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>AI Dank Meme Generator</h1>
+            <p class="disclaimer">⚠️ Warning: Memes may contain dark, satirical humor. Viewer discretion advised.</p>
+        </header>
+
+        <section id="templates-section">
+            <h2>1. Choose a Template (or Upload)</h2>
+            <div id="template-gallery" class="gallery">
+                <!-- Templates will be loaded here by JavaScript -->
+            </div>
+        </section>
+
+        <section class="generator-area">
+            <h2>2. Give Your Idea</h2>
+            <div class="controls">
+                <div class="control-group">
+                    <label for="image-upload">Or Upload Your Own:</label>
+                    <input type="file" id="image-upload" accept="image/*">
+                </div>
+                <div class="control-group">
+                    <label for="prompt-input">Describe the meme situation:</label>
+                    <textarea id="prompt-input" rows="3" placeholder="e.g., my wallet after I get paid vs two days later"></textarea>
+                </div>
+                <div class="control-group">
+                    <label for="language-select">Language:</label>
+                    <select id="language-select">
+                        <option value="English">English</option>
+                        <option value="Arabic">Arabic (العربية)</option>
+                        <option value="Hindi">Hindi (हिन्दी)</option>
+                        <option value="Bangla">Bangla (বাংলা)</option>
+                    </select>
+                </div>
+                 <div class="control-group">
+                    <label for="font-select">Font Style:</label>
+                    <select id="font-select">
+                        <option value="Anton">Classic Meme (Anton)</option>
+                        <option value="Whisper">Gen Z Vibe (Whisper)</option>
+                    </select>
+                </div>
+            </div>
+            <button id="generate-btn">Generate Meme</button>
+        </section>
+
+        <section id="result-section">
+            <h2>3. Your Meme</h2>
+            <div id="loader" class="loader hidden"></div>
+            <canvas id="meme-canvas"></canvas>
+            <div id="action-buttons" class="hidden">
+                <button id="try-more-btn">Try More</button>
+                <a id="download-btn" class="button" download="meme.png">Download</a>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
