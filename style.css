@@ -1,0 +1,158 @@
+:root {
+    --bg-color: #121212;
+    --primary-color: #1e1e1e;
+    --secondary-color: #2a2a2a;
+    --font-color: #e0e0e0;
+    --accent-color: #bb86fc;
+    --button-color: #03dac6;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--font-color);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    max-width: 800px;
+    width: 100%;
+}
+
+header {
+    text-align: center;
+    border-bottom: 1px solid var(--secondary-color);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: var(--accent-color);
+    margin-bottom: 5px;
+}
+
+.disclaimer {
+    font-size: 0.9em;
+    color: #ffcc80; /* A warning color */
+}
+
+h2 {
+    color: var(--button-color);
+    margin-top: 30px;
+}
+
+section {
+    background-color: var(--primary-color);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.gallery img:hover, .gallery img.selected {
+    border-color: var(--accent-color);
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="file"], textarea, select {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--secondary-color);
+    color: var(--font-color);
+    border: 1px solid #444;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button, .button {
+    display: inline-block;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--button-color);
+    color: #000;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+button:hover, .button:hover {
+    background-color: #36ebd8;
+}
+
+#result-section {
+    text-align: center;
+}
+
+#meme-canvas {
+    max-width: 100%;
+    border-radius: 4px;
+    margin: 10px 0;
+}
+
+#action-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+/* Loader Styles */
+.loader {
+    border: 5px solid var(--secondary-color);
+    border-top: 5px solid var(--accent-color);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.hidden {
+    display: none;
+}
