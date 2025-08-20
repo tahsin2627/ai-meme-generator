@@ -1,0 +1,15 @@
+{
+  "name": "ai-meme-generator",
+  "version": "1.0.0",
+  "description": "An AI powered meme generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google/generative-ai": "^0.11.3"
+  }
+}
