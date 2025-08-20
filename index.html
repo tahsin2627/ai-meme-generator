@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Meme Generator</title>
     <link rel="stylesheet" href="style.css">
-    <!-- No more Google Fonts needed, we load our own! -->
 </head>
 <body>
 
@@ -17,14 +16,14 @@
 
         <section id="templates-section">
             <h2>1. Choose a Template (or Upload)</h2>
-            <!-- NEW SEARCH BAR & MORE BUTTON -->
             <div class="template-controls">
-                <input type="text" id="template-search" placeholder="Search templates...">
-                <button id="more-templates-btn">More</button>
+                <input type="text" id="template-search" placeholder="Search all online templates...">
             </div>
             <div id="template-gallery" class="gallery">
                 <!-- Templates will be loaded here by JavaScript -->
             </div>
+            <div id="gallery-loader" class="loader hidden"></div>
+            <button id="more-templates-btn" class="secondary-button">More Templates</button>
         </section>
 
         <section class="generator-area">
@@ -54,7 +53,6 @@
                 </div>
                  <div class="control-group">
                     <label for="font-select">Font Style:</label>
-                    <!-- UPDATED TO USE YOUR CUSTOM FONTS -->
                     <select id="font-select">
                         <option value="Futura">Futura Heavy (English)</option>
                         <option value="OpenSans">Open Sans (English)</option>
