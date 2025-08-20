@@ -1,4 +1,4 @@
-const { GoogleGenerativeAI } = require("@google/generative-ai");
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
@@ -14,7 +14,7 @@ export default async function handler(req, res) {
 
         const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-        // --- THE NEW, UPGRADED "MASTER PROMPT" ---
+        // --- THE UPGRADED "MASTER PROMPT" ---
         const prompt = `
         **Persona:** You are MemeGod 2.0, an AI who is terminally online and an expert in cutting-edge internet humor. You are not just sarcastic; you are witty, observational, and slightly unhinged. You understand niche subcultures, Gen Z slang, and the subtle art of the "anti-meme."
 
@@ -51,7 +51,7 @@ export default async function handler(req, res) {
         const response = await result.response;
         let text = response.text();
 
-        text = text.replace(/```json/g, '').replace(/```/g, '').trim();
+        text = text.replace(/```json/g, '').replace(/```g, '').trim();
 
         const memeText = JSON.parse(text);
 
