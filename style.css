@@ -1,3 +1,25 @@
+/* --- CUSTOM FONT LOADING --- */
+@font-face {
+    font-family: 'Papyrus';
+    src: url('../fonts/papyrus.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Upright';
+    src: url('../fonts/Upright.otf') format('opentype');
+}
+@font-face {
+    font-family: 'SolaimanLipi';
+    src: url('../fonts/SolaimanLipi.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'OpenSans';
+    src: url('../fonts/OpenSans.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Futura';
+    src: url('../fonts/futura.otf') format('opentype');
+}
+
 :root {
     --bg-color: #121212;
     --primary-color: #1e1e1e;
@@ -9,7 +31,7 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'OpenSans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background-color: var(--bg-color);
     color: var(--font-color);
     margin: 0;
@@ -30,9 +52,8 @@ header {
     margin-bottom: 20px;
 }
 
-/* --- PREMIUM TITLE STYLE --- */
 .title-gradient {
-    font-family: 'Jost', sans-serif;
+    font-family: 'Futura', sans-serif;
     font-size: 2.5em;
     font-weight: 800;
     background: linear-gradient(90deg, var(--accent-color-1), var(--accent-color-2));
@@ -51,7 +72,7 @@ header {
 h2 {
     color: var(--accent-color-2);
     margin-top: 30px;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Upright', sans-serif;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -64,6 +85,32 @@ section {
     border: 1px solid var(--border-color);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
+
+/* --- SEARCH BAR & TEMPLATE CONTROLS --- */
+.template-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+#template-search {
+    flex-grow: 1;
+    padding: 10px;
+    background-color: var(--secondary-color);
+    color: var(--font-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1em;
+}
+#more-templates-btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--secondary-color);
+    color: var(--accent-color-2);
+    cursor: pointer;
+    font-weight: bold;
+}
+
 
 .gallery {
     display: grid;
@@ -86,6 +133,12 @@ section {
     transform: scale(1.05);
 }
 
+/* For hiding templates */
+.gallery img.hidden {
+    display: none;
+}
+
+
 .controls {
     display: flex;
     flex-direction: column;
@@ -103,7 +156,6 @@ label {
     color: #aaa;
 }
 
-/* --- PREMIUM INPUT STYLES --- */
 textarea, select {
     width: 100%;
     padding: 12px;
@@ -126,9 +178,8 @@ textarea {
     resize: vertical;
 }
 
-/* --- PREMIUM UPLOAD BUTTON STYLE --- */
 input[type="file"] {
-    display: none; /* Hide the ugly default button */
+    display: none;
 }
 
 .custom-file-upload {
@@ -163,7 +214,6 @@ input[type="file"] {
     padding-left: 5px;
 }
 
-/* --- PREMIUM GENERATE BUTTON --- */
 button, .button {
     display: inline-block;
     width: 100%;
