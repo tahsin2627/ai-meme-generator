@@ -29,7 +29,7 @@ export default async function handler(req, res) {
         const imagePart = {
             inlineData: {
                 data: base64Image,
-                mimeType: 'image/jpeg', // Assuming jpeg, works for png too
+                mimeType: 'image/jpeg',
             },
         };
 
@@ -37,10 +37,8 @@ export default async function handler(req, res) {
         const response = await result.response;
         let text = response.text();
 
-        // Clean up the response to ensure it's valid JSON
         text = text.replace(/```json/g, '').replace(/```/g, '').trim();
 
-        // Parse the cleaned text as JSON
         const memeText = JSON.parse(text);
 
         res.status(200).json(memeText);
