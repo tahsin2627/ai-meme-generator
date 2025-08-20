@@ -5,22 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Meme Generator</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:wght@800&family=Noto+Sans+Bengali:wght@700&family=Open+Sans+Condensed:wght@700&family=Oswald:wght@700&family=Papyrus&display=swap" rel="stylesheet">
+    <!-- No more Google Fonts needed, we load our own! -->
 </head>
 <body>
 
     <div class="container">
         <header>
-            <!-- ADDED A CLASS FOR STYLING THE TITLE -->
             <h1 class="title-gradient">AI Dank Meme Generator</h1>
             <p class="disclaimer">⚠️ Warning: Memes may contain dark, satirical humor. Viewer discretion advised.</p>
         </header>
 
         <section id="templates-section">
             <h2>1. Choose a Template (or Upload)</h2>
+            <!-- NEW SEARCH BAR & MORE BUTTON -->
+            <div class="template-controls">
+                <input type="text" id="template-search" placeholder="Search templates...">
+                <button id="more-templates-btn">More</button>
+            </div>
             <div id="template-gallery" class="gallery">
                 <!-- Templates will be loaded here by JavaScript -->
             </div>
@@ -29,11 +30,10 @@
         <section class="generator-area">
             <h2>2. Give Your Idea</h2>
             <div class="controls">
-                <!-- ENTIRELY NEW STRUCTURE FOR THE UPLOAD BUTTON -->
                 <div class="control-group">
                     <label>Or Upload Your Own:</label>
                     <label for="image-upload" class="custom-file-upload">
-                        <svg xmlns="http://www.w.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M16 13l-4 4-4-4h3V4h2v9h3zm-6 6h8v-2H10v2zM4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M16 13l-4 4-4-4h3V4h2v9h3zm-6 6h8v-2H10v2zM4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/></svg>
                         Upload Image
                     </label>
                     <input type="file" id="image-upload" accept="image/*">
@@ -54,13 +54,13 @@
                 </div>
                  <div class="control-group">
                     <label for="font-select">Font Style:</label>
+                    <!-- UPDATED TO USE YOUR CUSTOM FONTS -->
                     <select id="font-select">
-                        <option value="Anton">Classic Meme (Anton)</option>
-                        <option value="Open Sans Condensed">Clean English (Open Sans)</option>
-                        <option value="Jost">Heavy English (Futura-like)</option>
-                        <option value="Oswald">Upright Dank (Oswald)</option>
-                        <option value="Papyrus">Ironic Dank (Papyrus)</option>
-                        <option value="Noto Sans Bengali">Bangla (SolaimanLipi-like)</option>
+                        <option value="Futura">Futura Heavy (English)</option>
+                        <option value="OpenSans">Open Sans (English)</option>
+                        <option value="Upright">Upright (Mid Dank)</option>
+                        <option value="Papyrus">Papyrus (Dank)</option>
+                        <option value="SolaimanLipi">SolaimanLipi (Bangla)</option>
                     </select>
                 </div>
             </div>
