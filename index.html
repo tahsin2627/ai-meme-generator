@@ -8,13 +8,14 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Whisper&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:wght@800&family=Noto+Sans+Bengali:wght@700&family=Open+Sans+Condensed:wght@700&family=Oswald:wght@700&family=Papyrus&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <div class="container">
         <header>
-            <h1>AI Dank Meme Generator</h1>
+            <!-- ADDED A CLASS FOR STYLING THE TITLE -->
+            <h1 class="title-gradient">AI Dank Meme Generator</h1>
             <p class="disclaimer">⚠️ Warning: Memes may contain dark, satirical humor. Viewer discretion advised.</p>
         </header>
 
@@ -28,13 +29,19 @@
         <section class="generator-area">
             <h2>2. Give Your Idea</h2>
             <div class="controls">
+                <!-- ENTIRELY NEW STRUCTURE FOR THE UPLOAD BUTTON -->
                 <div class="control-group">
-                    <label for="image-upload">Or Upload Your Own:</label>
+                    <label>Or Upload Your Own:</label>
+                    <label for="image-upload" class="custom-file-upload">
+                        <svg xmlns="http://www.w.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M16 13l-4 4-4-4h3V4h2v9h3zm-6 6h8v-2H10v2zM4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/></svg>
+                        Upload Image
+                    </label>
                     <input type="file" id="image-upload" accept="image/*">
+                    <span id="file-name">No file chosen</span>
                 </div>
                 <div class="control-group">
                     <label for="prompt-input">Describe the meme situation:</label>
-                    <textarea id="prompt-input" rows="3" placeholder="e.g., my wallet after I get paid vs two days later"></textarea>
+                    <textarea id="prompt-input" rows="3" placeholder="e.g., my wallet after I get paid..."></textarea>
                 </div>
                 <div class="control-group">
                     <label for="language-select">Language:</label>
@@ -49,7 +56,11 @@
                     <label for="font-select">Font Style:</label>
                     <select id="font-select">
                         <option value="Anton">Classic Meme (Anton)</option>
-                        <option value="Whisper">Gen Z Vibe (Whisper)</option>
+                        <option value="Open Sans Condensed">Clean English (Open Sans)</option>
+                        <option value="Jost">Heavy English (Futura-like)</option>
+                        <option value="Oswald">Upright Dank (Oswald)</option>
+                        <option value="Papyrus">Ironic Dank (Papyrus)</option>
+                        <option value="Noto Sans Bengali">Bangla (SolaimanLipi-like)</option>
                     </select>
                 </div>
             </div>
@@ -66,7 +77,7 @@
             </div>
         </section>
     </div>
-
-    <script src="script.js"></script>
+    
+    <script src="script.js"></script> 
 </body>
 </html>
