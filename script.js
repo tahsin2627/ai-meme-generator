@@ -66,7 +66,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- CORE FUNCTIONS ---
     async function generateMeme() { if (!currentImage) { alert('Please select a template first.'); return; } if (!promptInput.value) { alert('Please provide a meme idea.'); return; } loader.classList.remove('hidden'); actionButtons.classList.add('hidden'); canvas.style.display = 'none'; const tempCanvas = document.createElement('canvas'); const tempCtx = tempCanvas.getContext('2d'); tempCanvas.width = currentImage.width; tempCanvas.height = currentImage.height; tempCtx.drawImage(currentImage, 0, 0); const imageData = tempCanvas.toDataURL('image/jpeg'); try { const response = await fetch('/api/generate', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ imageData, userPrompt: promptInput.value, language: languageSelect.value }) }); const data = await response.json(); if (!response.ok) { throw new Error(data.error || 'Something went wrong'); } drawMeme(data.top_text, data.bottom_text); } catch (error) { console.error(error); alert(`Error: ${error.message}`); } finally { loader.classList.add('hidden'); } }
-    function wrapText(context, text, x, y, maxWidth, lineHeight, fontStyle) { if (!text) return; context.font = `${lineHeight}px ${fontStyle}`; context.fillStyle = 'white'; context.strokeStyle = 'black'; context.lineWidth = lineHeight / 20; context.textAlign = 'center'; const words = text.split(' '); let line = ''; let lineY = y; for (let n = 0; n < words.length; n++) { const testLine = line + words[n] + ' '; const metrics = context.measureText(testLine); const testWidth = metrics.width; if (testTest > maxWidth && n > 0) { context.fillText(line, x, lineY); context.strokeText(line, x, lineY); line = words[n] + ' '; lineY += lineHeight; } else { line = testLine; } } context.fillText(line, x, lineY); context.strokeText(line, x, lineY); }
+    
+    function wrapText(context, text, x, y, maxWidth, lineHeight, fontStyle) {
+        if (!text) return;
+        context.font = `${lineHeight}px ${fontStyle}`;
+        context.fillStyle = 'white';
+        context.strokeStyle = 'black';
+        context.lineWidth = lineHeight / 20;
+        context.textAlign = 'center';
+        const words = text.split(' ');
+        let line = '';
+        let lineY = y;
+        for (let n = 0; n < words.length; n++) {
+            const testLine = line + words[n] + ' ';
+            const metrics = context.measureText(testLine);
+            const testWidth = metrics.width; // CORRECTED TYPO HERE
+            if (testWidth > maxWidth && n > 0) { // CORRECTED TYPO HERE
+                context.fillText(line, x, lineY);
+                context.strokeText(line, x, lineY);
+                line = words[n] + ' ';
+                lineY += lineHeight;
+            } else {
+                line = testLine;
+            }
+        }
+        context.fillText(line, x, lineY);
+        context.strokeText(line, x, lineY);
+    }
+    
     function drawMeme(topText, bottomText) { canvas.width = currentImage.naturalWidth || currentImage.width; canvas.height = currentImage.naturalHeight || currentImage.height; ctx.drawImage(currentImage, 0, 0, canvas.width, canvas.height); const fontName = fontSelect.value; const fontSize = canvas.width / 12; const maxWidth = canvas.width * 0.9; const x = canvas.width / 2; const topY = fontSize * 1.2; wrapText(ctx, topText, x, topY, maxWidth, fontSize, fontName); const bottomY = canvas.height - (fontSize * 1.5); wrapText(ctx, bottomText, x, bottomY, maxWidth, fontSize, fontName); canvas.style.display = 'block'; actionButtons.classList.remove('hidden'); }
 
     // --- INITIALIZATION ---
